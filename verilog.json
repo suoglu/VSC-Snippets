@@ -26,7 +26,7 @@
 	"assign": {
 		 	"prefix": "assign",
 		 	"body": [
-				"assign ${1:target} = ${2:source};\n$0"
+				"assign ${1:target} = ${2:source};$0"
 			],
 			"description": "Single line combinational assignment"
 		},
@@ -58,7 +58,7 @@
 	"single line condition statement": {
 		 	"prefix": "conditional",
 		 	"body": [
-				"${1:target} = (${2:condition}) ? ${3:true_source} : ${4:false_source};\n$0"
+				"${1:target} = (${2:condition}) ? ${3:true_source} : ${4:false_source};$0"
 			],
 			"description": "single line condition statement"
 		},
