@@ -2,7 +2,7 @@
 	"always": {
 		"prefix": "always",
 		"body": [
-		   "always@(posedge clk)\n\tbegin\n\t\t${1:code}\n\tend\n$0"
+		   "always@(posedge clk)\n\tbegin\n\t\t$0\n\tend\n"
 	   ],
 	   "description": "Always statement with clock"
    },
@@ -10,7 +10,7 @@
 	"always_comb": {
 		"prefix": "always_com",
 		"body": [
-		   "always@*\n\tbegin\n\t\t${1:code}\n\tend\n$0"
+		   "always@*\n\tbegin\n\t\t$0\n\tend\n"
 	   ],
 	   "description": "Combinational always statement"
    },
@@ -18,7 +18,7 @@
    "always_reset": {
 		"prefix": "always_rst",
 		"body": [
-		"always@(posedge clk or posedge rst)\n\tbegin\n\t\tif(rst)\n\t\t\tbegin\n\t\t\t\t${1:reset_code}\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\t${2:op_code}\n\t\t\tend\n\tend\n$0"
+		"always@(posedge clk or posedge rst)\n\tbegin\n\t\tif(rst)\n\t\t\tbegin\n\t\t\t\t${1:reset_code}\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\t$0\n\t\t\tend\n\tend\n"
 	],
 	"description": "Always statement with clock and reset"
 	},
@@ -74,7 +74,7 @@
 	"if": {
 		 	"prefix": "if",
 		 	"body": [
-				"if(${1:condition})\n\tbegin\n\t\t${2:code}\n\tend\n$0"
+				"if(${1:condition})\n\tbegin\n\t\t$0\n\tend\n"
 			],
 			"description": "if statement"
 		},
