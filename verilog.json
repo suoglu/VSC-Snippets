@@ -34,7 +34,7 @@
 	"case": {
 		 	"prefix": "case",
 		 	"body": [
-				"case(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code}:\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code}:\n\t\tend\nendcase\n$0"
+				"case(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase\n$0"
 			],
 			"description": "case statement"
 		},
@@ -42,7 +42,7 @@
 	"casex": {
 		 	"prefix": "casex",
 		 	"body": [
-				"casex(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code}:\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code}:\n\t\tend\nendcase\n$0"
+				"casex(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase\n$0"
 			],
 			"description": "casex statement (?: for dont cares)"
 		},
@@ -54,7 +54,27 @@
 			],
 			"description": "casez statement"
 		},
-
+	"dump file": {
+			"prefix": "dumpfile",
+			"body": [
+			   "\\$dumpfile(\"${1:FILE_NAME}.vcd\");$0"
+		   ],
+		   "description": "generate output file"
+	   },
+	"dump variable": {
+			"prefix": "dumpvar",
+			"body": [
+			   "\\$dumpvars(${1:number}, ${2:NAME});$0"
+		   ],
+		   "description": "to output variable"
+	   },
+	"finish sim": {
+		"prefix": "finish",
+		"body": [
+		   "\\$finish;$0"
+	   ],
+	   "description": "finish simulation"
+   },
 	"single line condition statement": {
 		 	"prefix": "conditional",
 		 	"body": [
