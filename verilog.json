@@ -105,5 +105,13 @@
 				"if(${1:condition})\n\tbegin\n\t\t${2:true}\n\tend\nelse\n\tbegin\n\t\t${3:false}\n\tend\n$0"
 			],
 			"description": "if-else statement"
-		}		
+    },
+
+    "timescale": {
+      "prefix": "timescale",
+      "body": [
+       "`timescale ${1:1ns / 1ps}$0"
+     ],
+     "description": "time scale for sim"
+   }		
 }
