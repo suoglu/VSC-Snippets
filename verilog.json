@@ -2,7 +2,7 @@
 	"always": {
 		"prefix": "always",
 		"body": [
-		   "always@(posedge clk)\n\tbegin\n\t\t$0\n\tend\n"
+		   "always@(posedge clk)\n\tbegin\n\t\t$0\n\tend"
 	   ],
 	   "description": "Always statement with clock"
    },
@@ -10,7 +10,7 @@
 	"always_comb": {
 		"prefix": "always_com",
 		"body": [
-		   "always@*\n\tbegin\n\t\t$0\n\tend\n"
+		   "always@*\n\tbegin\n\t\t$0\n\tend"
 	   ],
 	   "description": "Combinational always statement"
    },
@@ -18,10 +18,26 @@
    "always_reset": {
 		"prefix": "always_rst",
 		"body": [
-		"always@(posedge clk or posedge rst)\n\tbegin\n\t\tif(rst)\n\t\t\tbegin\n\t\t\t\t${1:reset_code}\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\t$0\n\t\t\tend\n\tend\n"
+		"always@(posedge clk or posedge rst)\n\tbegin\n\t\tif(rst)\n\t\t\tbegin\n\t\t\t\t${1:reset_code}\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\t$0\n\t\t\tend\n\tend"
 	],
 	"description": "Always statement with clock and reset"
-	},
+  },
+  
+  "always_delay": {
+   "prefix": "always#",
+   "body": [
+    "always #${1:delay} $0"
+  ],
+  "description": "always with delay"
+},
+  
+  "initial": {
+  "prefix": "initial",
+  "body": [
+    "initial\n\tbegin\n\t\t$0\n\tend"
+  ],
+  "description": "initial statement"
+  },
 
 	"assign": {
 		 	"prefix": "assign",
@@ -86,7 +102,7 @@
 	"new module": {
 		 	"prefix": "module",
 		 	"body": [
-				"module ${1:module_name}();\n\t$0\nendmodule//${1:module_name}"
+				"module ${1:module_name}(\n\t$0);\n\t\nendmodule"
 			],
 			"description": "new module"
 		},
@@ -94,7 +110,7 @@
 	"if": {
 		 	"prefix": "if",
 		 	"body": [
-				"if(${1:condition})\n\tbegin\n\t\t$0\n\tend\n"
+				"if(${1:condition})\n\tbegin\n\t\t$0\n\tend"
 			],
 			"description": "if statement"
 		},
@@ -102,7 +118,7 @@
 	"if-else": {
 		 	"prefix": "ifelse",
 		 	"body": [
-				"if(${1:condition})\n\tbegin\n\t\t${2:true}\n\tend\nelse\n\tbegin\n\t\t${3:false}\n\tend\n$0"
+				"if(${1:condition})\n\tbegin\n\t\t${2:true}\n\tend\nelse\n\tbegin\n\t\t${3:false}\n\tend$0"
 			],
 			"description": "if-else statement"
     },
@@ -113,5 +129,13 @@
        "`timescale ${1:1ns / 1ps}$0"
      ],
      "description": "time scale for sim"
-   }		
+   },
+
+    "include": {
+      "prefix": "include",
+      "body": [
+        "`include \"$0.v\""
+      ],
+      "description": "include verilog files"
+    }		
 }
