@@ -69,13 +69,13 @@
 		 	"body": [
 				"casex(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase$0"
 			],
-			"description": "casex statement (?: for dont cares)"
+			"description": "casex statement"
 		},
 
 	"casez": {
 		 	"prefix": "casez",
 		 	"body": [
-				"casex(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code}:\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code}:\n\t\tend\nendcase$0"
+				"casez(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code}:\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code}:\n\t\tend\nendcase$0"
 			],
 			"description": "casez statement"
 		},
