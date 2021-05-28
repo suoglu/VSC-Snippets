@@ -2,7 +2,7 @@
 	"always posedge": {
 		"prefix": "alwaysposedge",
 		"body": [
-		   "always@(posedge clk)\n\tbegin\n\t\t$0\n\tend"
+		   "always@(posedge clk) begin\n\t$0\nend"
 	   ],
 	   "description": "Always statement with posedge clock"
    },
@@ -10,7 +10,7 @@
    "always negedge": {
 		"prefix": "alwaysnegedge",
 		"body": [
-		   "always@(negedge clk)\n\tbegin\n\t\t$0\n\tend"
+		   "always@(negedge clk) begin\n\t$0\nend"
 	   ],
 	   "description": "Always statement with negedge clock"
    },
@@ -19,17 +19,25 @@
 	"always comb": {
 		"prefix": "alwayscomb",
 		"body": [
-		   "always@*\n\tbegin\n\t\t$0\n\tend"
+		   "always@* begin\n\t$0\nend"
 	   ],
 	   "description": "Combinational always statement"
    },
 
-   "always reset": {
-		"prefix": "alwaysrst",
+   "always reset posedge": {
+		"prefix": "alwaysrstpos",
 		"body": [
-		"always@(posedge clk or posedge rst)\n\tbegin\n\t\tif(rst)\n\t\t\tbegin\n\t\t\t\t${1:reset_code}\n\t\t\tend\n\t\telse\n\t\t\tbegin\n\t\t\t\t$0\n\t\t\tend\n\tend"
+		"always@(posedge clk or posedge rst)\n\tif(rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\nend"
 	],
-	"description": "Always statement with clock and reset"
+	"description": "Always statement with posedge clock and reset"
+  },
+
+  "always reset negedge": {
+		"prefix": "alwaysrstneg",
+		"body": [
+		"always@(posedge clk or negedge rst)\n\tif(~rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\nend"
+	],
+	"description": "Always statement with posedge clock and reset"
   },
   
   "always delay": {
@@ -43,7 +51,7 @@
   "initial": {
   "prefix": "initial",
   "body": [
-    "initial\n\tbegin\n\t\t$0\n\tend"
+    "initial begin\n\t$0\nend"
   ],
   "description": "initial statement"
   },
@@ -59,26 +67,28 @@
 	"case": {
 		 	"prefix": "case",
 		 	"body": [
-				"case(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase$0"
+				"case(${1:condition})\n\t${2:example_case}: ${3:example_code};\n\tdefault: ${4:default_code};\nendcase$0"
 			],
 			"description": "case statement"
 		},
 
-	"casex": {
-		 	"prefix": "casex",
-		 	"body": [
-				"casex(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase$0"
-			],
-			"description": "casex statement"
-		},
+  "casex": {
+      "prefix": "casex",
+      "body": [
+       "case(${1:condition})\n\t${2:example_case}: ${3:example_code};\n\tdefault: ${4:default_code};\nendcase$0"
+     ],
+     "description": "casex statement"
+   },
 
-	"casez": {
-		 	"prefix": "casez",
-		 	"body": [
-				"casez(${1:condition})\n\t${2:example_case}:\n\t\tbegin\n\t\t\t${3:example_code};\n\t\tend\n\tdefault:\n\t\tbegin\n\t\t\t${4:default_code};\n\t\tend\nendcase$0"
-			],
-			"description": "casez statement"
-		},
+
+  "casez": {
+    "prefix": "casez",
+    "body": [
+     "case(${1:condition})\n\t${2:example_case}: ${3:example_code};\n\tdefault: ${4:default_code};\nendcase$0"
+   ],
+   "description": "casez statement"
+ },
+
 	"dump file": {
 			"prefix": "dumpfile",
 			"body": [
@@ -86,6 +96,7 @@
 		   ],
 		   "description": "generate output file"
 	   },
+
 	"dump variable": {
 			"prefix": "dumpvar",
 			"body": [
@@ -93,6 +104,7 @@
 		   ],
 		   "description": "to output variable"
 	   },
+
 	"finish sim": {
 		"prefix": "finish",
 		"body": [
@@ -100,6 +112,7 @@
 	   ],
 	   "description": "finish simulation"
    },
+
 	"single line condition statement": {
 		 	"prefix": "conditional",
 		 	"body": [
@@ -119,7 +132,7 @@
 	"if": {
 		 	"prefix": "if",
 		 	"body": [
-				"if(${1:condition})\n\tbegin\n\t\t$0\n\tend"
+				"if(${1:condition}) begin\n\t$0\nend"
 			],
 			"description": "if statement"
 		},
@@ -127,7 +140,7 @@
 	"if-else": {
 		 	"prefix": "ifelse",
 		 	"body": [
-				"if(${1:condition})\n\tbegin\n\t\t${2:true}\n\tend\nelse\n\tbegin\n\t\t${3:false}\n\tend$0"
+				"if(${1:condition}) begin\n\t${2:true}\nend else begin\n\t${3:false}\nend$0"
 			],
 			"description": "if-else statement"
     },
