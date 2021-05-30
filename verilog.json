@@ -159,5 +159,13 @@
         "`include \"$0.v\""
       ],
       "description": "include verilog files"
-    }		
+    },
+
+    "clog2": {
+      "prefix": "clog2",
+      "body": [
+        "$clog2($0)"
+      ],
+      "description": "Ceiling of logarithm 2"
+    }	
 }
