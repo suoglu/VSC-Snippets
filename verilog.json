@@ -27,7 +27,7 @@
    "always reset posedge": {
 		"prefix": "alwaysrstpos",
 		"body": [
-		"always@(posedge clk or posedge rst)\n\tif(rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\nend"
+		"always@(posedge clk or posedge rst)\n\tif(rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
 	],
 	"description": "Always statement with posedge clock and reset"
   },
@@ -35,7 +35,7 @@
   "always reset negedge": {
 		"prefix": "alwaysrstneg",
 		"body": [
-		"always@(posedge clk or negedge rst)\n\tif(~rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\nend"
+		"always@(posedge clk or negedge rst)\n\tif(~rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
 	],
 	"description": "Always statement with posedge clock and reset"
   },
