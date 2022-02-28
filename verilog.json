@@ -1,43 +1,43 @@
 {
-	"always posedge": {
-		"prefix": "alwaysposedge",
-		"body": [
-		   "always@(posedge clk) begin\n\t$0\nend"
-	   ],
-	   "description": "Always statement with posedge clock"
+  "always posedge": {
+    "prefix": "alwaysposedge",
+    "body": [
+       "always@(posedge clk) begin\n\t$0\nend"
+     ],
+     "description": "Always statement with posedge clock"
    },
 
    "always negedge": {
-		"prefix": "alwaysnegedge",
-		"body": [
-		   "always@(negedge clk) begin\n\t$0\nend"
-	   ],
-	   "description": "Always statement with negedge clock"
+    "prefix": "alwaysnegedge",
+    "body": [
+       "always@(negedge clk) begin\n\t$0\nend"
+     ],
+     "description": "Always statement with negedge clock"
    },
 
 
-	"always comb": {
-		"prefix": "alwayscomb",
-		"body": [
-		   "always@* begin\n\t$0\nend"
-	   ],
-	   "description": "Combinational always statement"
+  "always comb": {
+    "prefix": "alwayscomb",
+    "body": [
+       "always@* begin\n\t$0\nend"
+     ],
+     "description": "Combinational always statement"
    },
 
    "always reset posedge": {
-		"prefix": "alwaysrstpos",
-		"body": [
-		"always@(posedge clk or posedge rst)\n\tif(rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
-	],
-	"description": "Always statement with posedge clock and reset"
+    "prefix": "alwaysrstpos",
+    "body": [
+    "always@(posedge clk or posedge rst)\n\tif(rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
+  ],
+  "description": "Always statement with posedge clock and reset"
   },
 
   "always reset negedge": {
-		"prefix": "alwaysrstneg",
-		"body": [
-		"always@(posedge clk or negedge rst)\n\tif(~rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
-	],
-	"description": "Always statement with posedge clock and reset"
+    "prefix": "alwaysrstneg",
+    "body": [
+    "always@(posedge clk or negedge rst)\n\tif(~rst) begin\n\t\t${1:reset_code}\n\tend else begin\n\t\t$0\n\tend"
+  ],
+  "description": "Always statement with posedge clock and reset"
   },
   
   "always delay": {
@@ -56,21 +56,21 @@
   "description": "initial statement"
   },
 
-	"assign": {
-		 	"prefix": "assign",
-		 	"body": [
-				"assign ${1:target} = ${2:source};$0"
-			],
-			"description": "Single line combinational assignment"
-		},
+  "assign": {
+       "prefix": "assign",
+       "body": [
+        "assign ${1:target} = ${2:source};$0"
+      ],
+      "description": "Single line combinational assignment"
+    },
 
-	"case": {
-		 	"prefix": "case",
-		 	"body": [
-				"case(${1:condition})\n\t${2:example_case}: ${3:example_code};\n\tdefault: ${4:default_code};\nendcase$0"
-			],
-			"description": "case statement"
-		},
+  "case": {
+       "prefix": "case",
+       "body": [
+        "case(${1:condition})\n\t${2:example_case}: ${3:example_code};\n\tdefault: ${4:default_code};\nendcase$0"
+      ],
+      "description": "case statement"
+    },
 
   "casex": {
       "prefix": "casex",
@@ -89,60 +89,60 @@
    "description": "casez statement"
  },
 
-	"dump file": {
-			"prefix": "dumpfile",
-			"body": [
-			   "\\$dumpfile(\"${1:FILE_NAME}.vcd\");$0"
-		   ],
-		   "description": "generate output file"
-	   },
+  "dump file": {
+      "prefix": "dumpfile",
+      "body": [
+         "\\$dumpfile(\"${1:FILE_NAME}.vcd\");$0"
+       ],
+       "description": "generate output file"
+     },
 
-	"dump variable": {
-			"prefix": "dumpvar",
-			"body": [
-			   "\\$dumpvars(${1:number}, ${2:NAME});$0"
-		   ],
-		   "description": "to output variable"
-	   },
+  "dump variable": {
+      "prefix": "dumpvar",
+      "body": [
+         "\\$dumpvars(${1:number}, ${2:NAME});$0"
+       ],
+       "description": "to output variable"
+     },
 
-	"finish sim": {
-		"prefix": "finish",
-		"body": [
-		   "\\$finish;$0"
-	   ],
-	   "description": "finish simulation"
+  "finish sim": {
+    "prefix": "finish",
+    "body": [
+       "\\$finish;$0"
+     ],
+     "description": "finish simulation"
    },
 
-	"single line condition statement": {
-		 	"prefix": "conditional",
-		 	"body": [
-				"${1:target} = (${2:condition}) ? ${3:true_source} : ${4:false_source};$0"
-			],
-			"description": "single line condition statement"
-		},
+  "single line condition statement": {
+       "prefix": "conditional",
+       "body": [
+        "${1:target} = (${2:condition}) ? ${3:true_source} : ${4:false_source};$0"
+      ],
+      "description": "single line condition statement"
+    },
 
-	"new module": {
-		 	"prefix": "module",
-		 	"body": [
-				"module ${1:module_name}(\n\t$0);\n\t\nendmodule"
-			],
-			"description": "new module"
-		},
+  "new module": {
+       "prefix": "module",
+       "body": [
+        "module ${1:module_name}(\n\t$0);\n\t\nendmodule"
+      ],
+      "description": "new module"
+    },
 
-	"if": {
-		 	"prefix": "if",
-		 	"body": [
-				"if(${1:condition}) begin\n\t$0\nend"
-			],
-			"description": "if statement"
-		},
+  "if": {
+       "prefix": "if",
+       "body": [
+        "if(${1:condition}) begin\n\t$0\nend"
+      ],
+      "description": "if statement"
+    },
 
-	"if-else": {
-		 	"prefix": "ifelse",
-		 	"body": [
-				"if(${1:condition}) begin\n\t${2:true}\nend else begin\n\t${3:false}\nend$0"
-			],
-			"description": "if-else statement"
+  "if-else": {
+       "prefix": "ifelse",
+       "body": [
+        "if(${1:condition}) begin\n\t${2:true}\nend else begin\n\t${3:false}\nend$0"
+      ],
+      "description": "if-else statement"
     },
 
     "timescale": {
@@ -167,5 +167,5 @@
         "$clog2($0)"
       ],
       "description": "Ceiling of logarithm 2"
-    }	
+    }
 }
