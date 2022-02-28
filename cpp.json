@@ -1,0 +1,65 @@
+{
+  "function": {
+    "prefix": "function",
+    "body": [
+       "${1:returntype} ${2:funtion_name}(${3:arguments}){\n\t$0\n}"
+     ],
+     "description": "Function template"
+   },
+
+   "if": {
+     "prefix": "if",
+     "body": [
+        "if(${1:condition}){\n\t$0\n}"
+      ],
+      "description": "if statement"
+    },
+
+    "if-else": {
+      "prefix": "ifelse",
+      "body": [
+         "if(${1:condition}){\n\t$0\n}else{\n\t//todo\n}"
+       ],
+       "description": "if else statement"
+     },
+
+     "else-if": {
+       "prefix": "elseif",
+       "body": [
+          "if(${1:condition}){\n\t$0\n}else if(${2:condition}){\n\t//todo\n}else{\n\t//todo\n}"
+        ],
+        "description": "else if statement"
+      },
+
+      "while": {
+        "prefix": "while",
+        "body": [
+           "while(${1:condition}){\n\t$0\n}"
+         ],
+         "description": "while loop"
+       },
+
+       "do-while": {
+         "prefix": "do",
+         "body": [
+            "do{\n\t$0\n}while(${1:condition});\n"
+          ],
+          "description": "while loop"
+        },
+
+       "for": {
+         "prefix": "for",
+         "body": [
+            "for(${1:init};${2:condition},${3:increment}){\n\t$0\n}"
+          ],
+          "description": "for loop"
+        },
+
+        "switch": {
+          "prefix": "switch",
+          "body": [
+            "switch(${1:condition}){\n\tcase $0:\n\t\t\n\t\tbreak;\n\tdefault:\n\t\t\n}"
+           ],
+           "description": "switch statement"
+         }
+}
